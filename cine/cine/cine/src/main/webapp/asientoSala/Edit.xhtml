@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AsientoSalaEditDlg" widgetVar="AsientoSalaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAsientoSalaTitle}">
+            <h:form id="AsientoSalaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{asientoSalaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAsientoSalaLabel_idAsiento}" for="idAsiento" />
+                        <p:inputText id="idAsiento" value="#{asientoSalaController.selected.idAsiento}" title="#{bundle.EditAsientoSalaTitle_idAsiento}" required="true" requiredMessage="#{bundle.EditAsientoSalaRequiredMessage_idAsiento}"/>
+                        <p:outputLabel value="#{bundle.EditAsientoSalaLabel_fila}" for="fila" />
+                        <p:inputText id="fila" value="#{asientoSalaController.selected.fila}" title="#{bundle.EditAsientoSalaTitle_fila}" required="true" requiredMessage="#{bundle.EditAsientoSalaRequiredMessage_fila}"/>
+                        <p:outputLabel value="#{bundle.EditAsientoSalaLabel_columna}" for="columna" />
+                        <p:inputText id="columna" value="#{asientoSalaController.selected.columna}" title="#{bundle.EditAsientoSalaTitle_columna}" required="true" requiredMessage="#{bundle.EditAsientoSalaRequiredMessage_columna}"/>
+                        <p:outputLabel value="#{bundle.EditAsientoSalaLabel_activo}" for="activo" />
+                        <p:selectBooleanCheckbox id="activo" value="#{asientoSalaController.selected.activo}" required="true" requiredMessage="#{bundle.EditAsientoSalaRequiredMessage_activo}"/>
+                        <p:outputLabel value="#{bundle.EditAsientoSalaLabel_asiento}" for="asiento" />
+                        <p:selectOneMenu id="asiento" value="#{asientoSalaController.selected.asiento}" required="true" requiredMessage="#{bundle.EditAsientoSalaRequiredMessage_asiento}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{asientoController.itemsAvailableSelectOne}"
+                                           var="asientoItem"
+                                           itemValue="#{asientoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAsientoSalaLabel_idSala}" for="idSala" />
+                        <p:selectOneMenu id="idSala" value="#{asientoSalaController.selected.idSala}" required="true" requiredMessage="#{bundle.EditAsientoSalaRequiredMessage_idSala}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{salaController.itemsAvailableSelectOne}"
+                                           var="idSalaItem"
+                                           itemValue="#{idSalaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{asientoSalaController.update}" value="#{bundle.Save}" update="display,:AsientoSalaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AsientoSalaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AsientoSalaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

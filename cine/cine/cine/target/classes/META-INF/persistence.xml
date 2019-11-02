@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <!-- Define Persistence Unit -->
+  <persistence-unit name="my_persistence_unit">
+     <jta-data-source>jdbc/cine</jta-data-source>
+    <class>com.cinema.cine.entities.OrdenConsumible</class>
+    <class>com.cinema.cine.entities.Boleto</class>
+    <class>com.cinema.cine.entities.AsientoSala</class>
+    <class>com.cinema.cine.entities.CaracteristicaFuncion</class>
+    <class>com.cinema.cine.entities.Funcion</class>
+    <class>com.cinema.cine.entities.Director</class>
+    <class>com.cinema.cine.entities.AtributoSala</class>
+    <class>com.cinema.cine.entities.Clasificacion</class>
+    <class>com.cinema.cine.entities.MenuConsumible</class>
+    <class>com.cinema.cine.entities.Genero</class>
+    <class>com.cinema.cine.entities.Orden</class>
+    <class>com.cinema.cine.entities.CaracteristicaAsiento</class>
+    <class>com.cinema.cine.entities.TipoDescuento</class>
+    <class>com.cinema.cine.entities.AtributoFuncion</class>
+    <class>com.cinema.cine.entities.Pelicula</class>
+    <class>com.cinema.cine.entities.Factura</class>
+    <class>com.cinema.cine.entities.TipoPago</class>
+    <class>com.cinema.cine.entities.Sala</class>
+    <class>com.cinema.cine.entities.CaracteristicaSala</class>
+    <class>com.cinema.cine.entities.Descuento</class>
+    <class>com.cinema.cine.entities.Sucursal</class>
+    <class>com.cinema.cine.entities.AtributoAsiento</class>
+    <class>com.cinema.cine.entities.Asiento</class>
+    <class>com.cinema.cine.entities.Pago</class>
+  </persistence-unit>
+</persistence>
